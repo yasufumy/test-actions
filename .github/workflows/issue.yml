@@ -14,7 +14,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Would you tell us your envrionment? Thank you! (If this issue relates with a feature request, we are sorry for inconvenience. It will be great if you add "request" to your issue title from now on.)'
+              body: 'Would you tell us your envrionment? Thank you! (If this issue relates with a feature request, we are sorry for inconvenience. It will be great if you include "request" in your issue title from now on.)'
             });
             await github.issues.addLabels({
               issue_number: context.issue.number,
