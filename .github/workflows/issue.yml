@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: contains('Goodbye', 'llo') == false
+        if: contains(event.github.issue.body, 'Environment') == false
         with:
           script: |
             github.issues.createComment({
