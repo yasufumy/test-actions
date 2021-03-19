@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: contains('Hello world', 'llo')
+        if: contains('Goodbye', 'llo') == false
         with:
           script: |
             github.issues.createComment({
