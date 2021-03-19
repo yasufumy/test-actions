@@ -6,6 +6,14 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      - name: issue comment
+      - if: contains('Environment', 'Envrionment hoge hoge')
       - uses: actions/github-script@v3
         with:
-          script: console.log(JSON.stringify(github.event.issue))
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
