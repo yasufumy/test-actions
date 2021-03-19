@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: ${{ contains(github.event.issue.body, "Environment") != true }}
+        if: contains('Environment', github.event.issue.body) != true
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
