@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: contains(github.event.issue.body, 'Environment') == false
+        if: (contains(github.event.issue.body, 'Environment') == false) and (contains(github.event.issue.title, 'request') == false)
         with:
           script: |
             await github.issues.createComment({
