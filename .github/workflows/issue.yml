@@ -1,18 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. 
 on:
   issues:
     types: [opened]
 
 jobs:
-  apply-label:
+  comment:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: contains('Environment', github.event.issue.body) != true
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -20,5 +14,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '[WARN] No envrionment section'
+              body: '👋 Thanks for reporting!'
             })
