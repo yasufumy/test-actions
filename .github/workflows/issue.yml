@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/github-script@v3
         with:
-          script: console.log(JSON.stringify(context))
+          script: console.log(JSON.stringify(github.event.issue))
