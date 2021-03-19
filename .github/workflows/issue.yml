@@ -5,6 +5,7 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
+    if: contains("a", "aaaaa")
     steps:
       - uses: actions/github-script@v3
         with:
@@ -15,4 +16,3 @@ jobs:
               repo: context.repo.repo,
               body: '👋 Thanks for reporting!'
             })
-      - if: contains('Environment', 'Envrionment hoge hoge')
