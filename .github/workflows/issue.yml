@@ -5,14 +5,7 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
-    if: ${{ !contains('Envrionment', github.event.issue.body) }}
     steps:
       - uses: actions/github-script@v3
         with:
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+          script: console.log(JSON.stringify(context))
