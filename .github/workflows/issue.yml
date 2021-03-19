@@ -6,6 +6,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      - if: contains('Envrionment', github.event.issue.body) != true
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
