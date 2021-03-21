@@ -1,3 +1,5 @@
+name: Issue format validator
+
 on:
   issues:
     types: [opened]
@@ -10,15 +12,9 @@ jobs:
         if: (contains(github.event.issue.body, 'Environment') == false) && (contains(github.event.issue.title, 'request') == false)
         with:
           script: |
-            await github.issues.createComment({
+            github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Would you tell us your envrionment? Thank you! (If this issue relates with a feature request, we are sorry for inconvenience. It will be great if you include "request" in your issue title from now on.)'
-            });
-            await github.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['update-needed']
-            });
+            })
